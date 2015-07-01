@@ -2,6 +2,8 @@
 #define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
 
+#define EXERCISM_RUN_ALL_TESTS 1
+
 BOOST_AUTO_TEST_CASE(stating_something)
 {
     BOOST_REQUIRE_EQUAL("Whatever.", bob::hey("Tom-ay-to, tom-aaaah-to."));
