@@ -24,7 +24,8 @@ class Anagram
     std::vector<std::string> matches(const std::initializer_list<std::string>& list) const;
 
   private:
-    std::string m_ref;
+    std::string m_lowerRef;
+    std::map<char, int> m_mapRef;
 
     bool containsSameLettersAs(const std::string& cmp) const;
     std::map<char, int> getStatLettersAnalysis(const std::string& input) const;
