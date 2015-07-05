@@ -29,14 +29,8 @@ std::map<std::string, int> words(const std::string& phrase)
   // Count strings through a map
   for(const auto& str : strs)
   {
-    if(str.empty())
-      continue;
-
-    if(countingMap.find(str) == countingMap.end()) {
-      countingMap[str] = 1;
-    } else {
+    if(not str.empty())
       ++countingMap[str];
-    }
   }
 
   return countingMap;
