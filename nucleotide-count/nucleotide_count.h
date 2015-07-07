@@ -14,7 +14,7 @@ namespace dna
 class counter
 {
   public:
-    counter(const std::string& sequence) :
+    explicit counter(const std::string& sequence) :
       m_sequence(sequence)
     {
     }
