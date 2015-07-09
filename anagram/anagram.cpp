@@ -7,14 +7,14 @@ using namespace std;
 namespace anagram
 {
 
-Anagram::Anagram(const string& ref) :
+anagram::anagram(const string& ref) :
   m_lowerRef(boost::algorithm::to_lower_copy(ref)),
   m_mapRef(getStatLettersAnalysis(m_lowerRef))
 {
 }
 
 /// Look in input @a list to find compatible anagrams with m_lowerRef
-vector<string> Anagram::matches(const initializer_list<string>& list) const
+vector<string> anagram::matches(const initializer_list<string>& list) const
 {
   vector<string> matched;
 
@@ -33,7 +33,7 @@ vector<string> Anagram::matches(const initializer_list<string>& list) const
 }
 
 /// Compare letter-occurence maps between @a cmp and m_ref
-bool Anagram::containsSameLettersAs(const string& cmp) const
+bool anagram::containsSameLettersAs(const string& cmp) const
 {
   auto lowerCmp = boost::algorithm::to_lower_copy(cmp);
   // If same string (case insensitive due to lowercase), discards it
@@ -41,16 +41,13 @@ bool Anagram::containsSameLettersAs(const string& cmp) const
 }
 
 /// Returns a map containing the letters and the number of occurences for each of them
-map<char, int> Anagram::getStatLettersAnalysis(const string& input) const
+map<char, int> anagram::getStatLettersAnalysis(const string& input) const
 {
   map<char, int> mapLetters;
 
   for(auto c : input)
   {
-    if(mapLetters.find(c) == mapLetters.end())
-      mapLetters[c] = 1;
-    else
-      ++mapLetters[c];
+    ++mapLetters[c];
   }
 
   return mapLetters;
