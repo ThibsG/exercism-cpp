@@ -11,10 +11,10 @@ std::map<char, int> transform(const std::map<int, std::vector<char>>& old)
 {
   std::map<char, int> newFormat;
 
-  for(auto it = old.cbegin() ; it != old.cend() ; ++it)
-  {
-    for(auto c : it->second)
-      newFormat[tolower(c)] = it->first;
+  for(auto p : old) {
+    for(auto c : p->second) {
+      newFormat[tolower(c)] = p->first;
+    }
   }
 
   return newFormat;
