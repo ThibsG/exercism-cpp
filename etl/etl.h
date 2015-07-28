@@ -11,9 +11,9 @@ std::map<char, int> transform(const std::map<int, std::vector<char>>& old)
 {
   std::map<char, int> newFormat;
 
-  for(auto p : old) {
-    for(auto c : p->second) {
-      newFormat[tolower(c)] = p->first;
+  for(const auto& p : old) {
+    for(auto c : p.second) {
+      newFormat[tolower(c)] = p.first;
     }
   }
 
