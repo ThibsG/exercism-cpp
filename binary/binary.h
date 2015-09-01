@@ -8,7 +8,7 @@ namespace binary
 
 namespace
 {
-constexpr auto asciiOffset = 48;
+constexpr auto asciiOffset = '0';
 }
 
 int convert(const std::string& binary)
