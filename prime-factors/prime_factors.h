@@ -13,13 +13,12 @@ std::vector<int> of(int natural)
   if(natural <= 1)
     return primes;
 
-  auto current = natural;
   auto divider = 2;
 
-  while(current != 1)
+  while(natural != 1)
   {
-    if(current % divider == 0) {
-      current /= divider;
+    if(natural % divider == 0) {
+      natural /= divider;
       primes.push_back(divider);
       continue;
     }
