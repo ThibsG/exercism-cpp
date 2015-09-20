@@ -20,7 +20,6 @@ class cipher
     std::string cipher_text() const;
 
   private:
-    std::string m_text;
     std::string m_normalized;
     uint32_t m_size;
 };

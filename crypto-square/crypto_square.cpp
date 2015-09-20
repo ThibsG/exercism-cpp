@@ -8,15 +8,11 @@ using namespace std;
 namespace crypto_square
 {
 
-cipher::cipher(const string& text) :
-  m_text(text)
+cipher::cipher(const string& text)
 {
-  copy_if(m_text.begin(), m_text.end(), back_inserter(m_normalized), ::isalnum);
+  copy_if(text.begin(), text.end(), back_inserter(m_normalized), ::isalnum);
   transform(m_normalized.begin(), m_normalized.end(), m_normalized.begin(), ::tolower);
-  // Set size: if not a perfect square, use next number
-  m_size = sqrt(m_normalized.size());
-  if(pow(m_size, 2) != m_normalized.size())
-    ++m_size;
+  m_size = ceil(sqrt(m_normalized.size()));
 }
 
 uint32_t cipher::size() const
@@ -57,14 +53,12 @@ string cipher::normalized_cipher_text() const
         continue;
 
       ciphered += seg[i];
-      if(++cptChars == m_size) {
-        cptChars = 0;
+      if(++cptChars % m_size == 0)
         ciphered += " ";
-      }
     }
   }
 
-  if(::isspace(ciphered.at(ciphered.size() - 1)))
+  if(isspace(ciphered.back()))
     ciphered.pop_back();
   return ciphered;
 }
