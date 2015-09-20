@@ -9,16 +9,18 @@ namespace hexadecimal
 
 uint32_t convert(const std::string& number)
 {
-  auto pow = number.size();
   uint32_t hexa = 0;
 
   for(const auto& c : number)
   {
     auto ascii = 0;
 
-    if(c >= '0' && c <= '9') {
+    if(c >= '0' && c <= '9')
+    {
       ascii = c - '0';
-    } else {
+    }
+    else
+    {
       auto lowered = tolower(c);
       if(lowered >= 'a' && lowered <= 'f')
         ascii = lowered - 'a' + 10;
@@ -26,7 +28,7 @@ uint32_t convert(const std::string& number)
         return 0;
     }
 
-    hexa += ascii << (--pow * 4);
+    hexa = (hexa << 4) + ascii;
   }
 
   return hexa;
