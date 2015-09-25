@@ -22,6 +22,9 @@ const std::map<uint64_t, std::string> table =
   ,{million,"million"},{billion,"billion"}};
 }
 
+std::string spellOut(uint64_t number) noexcept;
+void getChunk(std::string& spell, uint64_t& num, uint64_t step) noexcept;
+
 std::string in_english(uint64_t input)
 {
   if(static_cast<int64_t>(input) < 0 || input > maxNum)
